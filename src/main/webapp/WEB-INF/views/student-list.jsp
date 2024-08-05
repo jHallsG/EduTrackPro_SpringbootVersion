@@ -12,8 +12,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/my-stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/my-stylesheet.css" />
 
 </head>
 <body>

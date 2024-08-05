@@ -2,7 +2,8 @@ package com.edutrackpro.api;
 
 public class StudentDTO {
 	
-	private String name, address;
+	private String name;
+	private String address;
 	private Long phone;
 	
 	public String getName() {

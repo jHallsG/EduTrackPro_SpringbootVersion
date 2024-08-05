@@ -1,9 +1,17 @@
 package com.edutrackpro.api;
 
+import com.edutrackpro.customvalidator.PHPhoneValidator;
+
+import jakarta.validation.constraints.NotBlank;
+
 public class Students {
 	
 	private int id;
-	private String name, address;
+	@NotBlank(message="")
+	private String name;
+	@NotBlank
+	private String address;
+	@PHPhoneValidator
 	private Long phone;
 	
 	public int getId() {

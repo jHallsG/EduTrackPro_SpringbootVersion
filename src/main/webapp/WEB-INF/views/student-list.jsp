@@ -11,19 +11,32 @@
 <title>Students List</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/my-stylesheet.css" />
 
 </head>
 <body>
 
 	<div class="container">
-		<h1>EduTrackPro</h1>
-		<h4>Student Management</h4>
+		<div class="row align-items-center">
+            <div class="col-auto">
+                <a href="./show" class="btn btn-primary">
+                	<i class="fas fa-home"></i>
+                </a>
+            </div>
+            <div class="col text-center">
+                <h1>EduTrackPro</h1>
+                <h4>Student Management</h4>
+            </div>
+            <div class="col-auto"></div>
+        </div>
+		
 		<hr>
 		<div class="add-search-bar">
 			<div class="add-btn">
-				<a href="./add"><button class="btn">Add</button></a>
+				<a href="./add">
+					<i class="fa fa-plus fa-2x fa-border" aria-hidden="true"></i>
+				</a>
 			</div>
 			<div class="search-bar">
 				<form action="search" method="GET">

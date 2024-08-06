@@ -1,5 +1,6 @@
 package com.edutrackpro.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.edutrackpro.api.Students;
+import com.edutrackpro.service.EmailServiceImpl;
 import com.edutrackpro.service.StudentService;
 
 import jakarta.validation.Valid;
@@ -26,6 +28,9 @@ public class StudentController {
 
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private EmailServiceImpl emailService;
 
 	@GetMapping("/test")
 	@ResponseBody
@@ -101,6 +106,20 @@ public class StudentController {
 		model.addAttribute("students", students);
 
 		return "student-list";
+	}
+	
+	@GetMapping("/sendEmail")
+	public String errorSend(@RequestParam("error") String error) {
+		
+		emailService.sendEmail(error);
+
+		return "error-sent";
+	}
+	
+	@GetMapping("/error")
+	public String error() throws IOException {
+		throw new IOException();
+		
 	}
 
 	@ResponseBody

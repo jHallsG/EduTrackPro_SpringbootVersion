@@ -1,0 +1,45 @@
+package com.edutrackpro.controllers;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.edutrackpro.api.UserDTO;
+
+import jakarta.validation.Valid;
+
+@Controller
+@RequestMapping("/login")
+public class LoginController {
+
+	@GetMapping("/")
+	public String login(Model model) {
+		
+		model.addAttribute("userLogin", new UserDTO());
+		
+		return "login";
+	}
+	
+	@PostMapping("/submitLogin")
+	public String processLogin(@Valid @ModelAttribute("userLogin") UserDTO user, BindingResult res) {
+		
+		if (res.hasErrors()) {
+
+			List<ObjectError> errors = res.getAllErrors();
+			for (ObjectError errorItem : errors) {
+				System.out.println("Error Item " + errorItem);
+			}
+
+			return "login";
+		}
+		
+		return "redirect:/students/show";
+	}
+}

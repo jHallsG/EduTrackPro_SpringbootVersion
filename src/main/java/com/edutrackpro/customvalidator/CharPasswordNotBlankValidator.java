@@ -15,7 +15,7 @@ import jakarta.validation.Payload;
 @Target(FIELD)
 @Constraint(validatedBy = PasswordValidator.class)
 public @interface CharPasswordNotBlankValidator {
-	String message() default "*Password must not be blank and must be atleast 8 characters long";
+	String message() default "*Password must atleast 8 characters long";
 	Class<?>[] groups() default { };
 	Class<? extends Payload>[] payload() default { };
 }

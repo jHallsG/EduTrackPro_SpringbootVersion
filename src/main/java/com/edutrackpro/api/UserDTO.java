@@ -40,5 +40,10 @@ public class UserDTO {
 		this.password = password;
 	}
 	
-
+	@Override
+	public String toString() {
+		
+		String strVersion = userEmail + " " + role + " " + password;
+		return role;
+	}
 }

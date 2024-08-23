@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
  <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
@@ -28,9 +28,11 @@
           <div class="row button">
             <input type="submit" value="Register">
           </div>
-          
+          <div class="signup-link">Already a member? Click <a href="../login/">here</a> to login</div>
         </form:form>
       </div>
     </div>
+    
+    
 </body>
 </html>

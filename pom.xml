@@ -14,16 +14,31 @@
 		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 
+	<!-- This parent will take care of common Spring dependencies: ie, context,
+	aop, etc...-->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.5</version>
 	</parent>
 
+	<!-- The equivalent of Spring WebMVC dependency -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Springboot Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- Spring Boot Data JPA. For mapping databse with entity class-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
 		<!-- JDBC -->
@@ -61,24 +76,25 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
-		<!-- Email Services -->
+		<!-- Email Services: API -->
 		<dependency>
 			<groupId>jakarta.mail</groupId>
 			<artifactId>jakarta.mail-api</artifactId>
 		</dependency>
 
+		<!-- Email Services: API Implementation -->
 		<dependency>
 			<groupId>org.eclipse.angus</groupId>
 			<artifactId>jakarta.mail</artifactId>
 		</dependency>
 
+		<!-- Email Services: Integrating mailing services to Spring application -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 		</dependency>
-
-
 	</dependencies>
+
 	<build>
 		<finalName>EduTrackPro_Springboot</finalName>
 		<plugins>

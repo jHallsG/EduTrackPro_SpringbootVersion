@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edutrackpro.api.Students;
+import com.edutrackpro.api.StudentDTO;
 import com.edutrackpro.service.StudentService;
 
 @RestController("/api")
@@ -19,9 +19,9 @@ public class APIController {
 	
 	@ResponseBody
 	@GetMapping("/showAPI")
-	public List<Students> studentsAPIList(Model model) {
+	public List<StudentDTO> studentsAPIList(Model model) {
 
-		List<Students> students = studentService.loadStudents();
+		List<StudentDTO> students = studentService.loadStudents();
 
 		return students;
 	}

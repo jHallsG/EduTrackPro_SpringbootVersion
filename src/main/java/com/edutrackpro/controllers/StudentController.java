@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.edutrackpro.api.Students;
+import com.edutrackpro.api.StudentDTO;
 import com.edutrackpro.service.StudentService;
 
 import jakarta.validation.Valid;
@@ -28,7 +28,7 @@ public class StudentController {
 	@GetMapping("/show")
 	public String fetchAllStudents(Model model) {
 		
-		List<Students> students = studentService.loadStudents();
+		List<StudentDTO> students = studentService.loadStudents();
 
 		model.addAttribute("students", students);
 
@@ -36,7 +36,7 @@ public class StudentController {
 	}
 
 	@GetMapping("/add")
-	public String addStudent(Students student, Model model) {
+	public String addStudent(StudentDTO student, Model model) {
 		model.addAttribute("addStudent", student);
 
 		model.addAttribute("title", "New");
@@ -45,7 +45,7 @@ public class StudentController {
 	}
 
 	@PostMapping("/submit")
-	public String submitNewStudent(@Valid @ModelAttribute("addStudent") Students student, BindingResult res) { // StudentDTO and Students have the
+	public String submitNewStudent(@Valid @ModelAttribute("addStudent") StudentDTO student, BindingResult res) { // StudentDTO and Students have the
 																					// same fields
 		if (res.hasErrors()) {
 
@@ -69,7 +69,7 @@ public class StudentController {
 	@GetMapping("/update")
 	public String updateStudent(@RequestParam("userId") int id, Model model) {
 
-		Students student = studentService.getStudentById(id);
+		StudentDTO student = studentService.getStudentById(id);
 
 		model.addAttribute("addStudent", student);
 		model.addAttribute("title", "Edit");
@@ -88,7 +88,7 @@ public class StudentController {
 	@GetMapping("/search")
 	public String searchStudent(@RequestParam("query") String query, Model model) {
 
-		List<Students> students = studentService.search(query);
+		List<StudentDTO> students = studentService.search(query);
 
 		model.addAttribute("students", students);
 

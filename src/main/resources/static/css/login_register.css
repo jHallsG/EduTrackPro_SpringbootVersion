@@ -57,7 +57,7 @@ body {
 
 .wrapper form .row {
 	height: 45px;
-	margin-bottom: 15px;
+	margin-bottom: 30px;
 	position: relative;
 }
 
@@ -143,5 +143,4 @@ form .signup-link a:hover {
     font-size: 0.75em;
     margin-top: 5px;
     display: block;
-    margin-bottom: 10px;
 }

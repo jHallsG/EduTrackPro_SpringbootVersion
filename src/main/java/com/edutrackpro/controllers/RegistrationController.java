@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edutrackpro.api.UserDTO;
-import com.edutrackpro.service.UserService;
+import com.edutrackpro.service.impl.RegistrationServiceImpl;
 
 import jakarta.validation.Valid;
 
@@ -23,7 +23,7 @@ import jakarta.validation.Valid;
 public class RegistrationController {
 	
 	@Autowired
-	private UserService userService;
+	RegistrationServiceImpl regService;
 
 	@GetMapping("/")
 	public String register(Model model) {
@@ -34,7 +34,7 @@ public class RegistrationController {
 	}
 	
 	@PostMapping("/submitRegistration")
-	public String submitRegistration(@Valid @ModelAttribute("userRegistration") UserDTO users, BindingResult res) {
+	public String submitRegistration(@Valid @ModelAttribute("userRegistration") UserDTO users, BindingResult res, RedirectAttributes redirectAttributes) {
 		
 		if (res.hasErrors()) {
 
@@ -46,9 +46,7 @@ public class RegistrationController {
 			return "register";
 		}
 		
-		System.out.println(users.getUserEmail());
-		System.out.println(users.getPassword());
-//		userService.registerUser(users.getUserEmail());
+		regService.registerNewUser(users.getUserEmail(), users.getPassword().toString()); 
 		
 		return "redirect:/login/";
 	}

@@ -2,14 +2,14 @@ package com.edutrackpro.service;
 
 import java.util.List;
 
-import com.edutrackpro.api.Students;
+import com.edutrackpro.api.StudentDTO;
 
 public interface StudentService {
 	
-	List<Students> loadStudents();
-	List<Students> search(String search);
-	void insertNewStudent(Students student);
-	Students getStudentById(int id);
+	List<StudentDTO> loadStudents();
+	List<StudentDTO> search(String search);
+	void insertNewStudent(StudentDTO student);
+	StudentDTO getStudentById(int id);
 	void deleteStudent(int id);
-	void updateStudentInfo(Students student);
+	void updateStudentInfo(StudentDTO student);
 }

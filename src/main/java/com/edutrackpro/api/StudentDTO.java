@@ -1,19 +1,33 @@
 package com.edutrackpro.api;
 
+import com.edutrackpro.customvalidator.PHPhoneValidator;
+
+import jakarta.validation.constraints.NotBlank;
+
 public class StudentDTO {
 	
+	private int id;
+	@NotBlank(message="")
 	private String name;
+	@NotBlank
 	private String address;
+	@PHPhoneValidator
 	private Long phone;
 	
+	public int getId() {
+		return id;
+	}
 	public String getName() {
 		return name;
 	}
 	public String getAddress() {
 		return address;
-	} 
+	}
 	public Long getPhone() {
 		return phone;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -27,6 +41,6 @@ public class StudentDTO {
 	
 	@Override
 	public String toString() {
-		return ("Name: " + name + ", Phone: " + phone + ", Address" + address);
+		return "Name: " + name + " Phone: " + phone + " Address: " + address;
 	}
 }

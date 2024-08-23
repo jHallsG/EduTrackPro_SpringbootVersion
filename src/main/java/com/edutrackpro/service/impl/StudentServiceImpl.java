@@ -1,12 +1,13 @@
-package com.edutrackpro.service;
+package com.edutrackpro.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edutrackpro.api.Students;
+import com.edutrackpro.api.StudentDTO;
 import com.edutrackpro.dao.StudentDAO;
+import com.edutrackpro.service.StudentService;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -15,26 +16,26 @@ public class StudentServiceImpl implements StudentService {
 	private StudentDAO studentDAO;
 
 	@Override
-	public List<Students> loadStudents() {
+	public List<StudentDTO> loadStudents() {
 		
-		List<Students> listOfStudents = studentDAO.loadStudents();
+		List<StudentDTO> listOfStudents = studentDAO.loadStudents();
 
 		return listOfStudents;
 	}
 
 	@Override
-	public List<Students> search(String search) {
+	public List<StudentDTO> search(String search) {
 		return studentDAO.search(search);
 	}
 
 	@Override
-	public void insertNewStudent(Students student) {
+	public void insertNewStudent(StudentDTO student) {
 		
 		studentDAO.insertNewStudent(student);
 	}
 
 	@Override
-	public Students getStudentById(int id) {
+	public StudentDTO getStudentById(int id) {
 		return studentDAO.getStudentById(id);
 	}
 
@@ -44,7 +45,7 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public void updateStudentInfo(Students student) {
+	public void updateStudentInfo(StudentDTO student) {
 		studentDAO.updateStudentInfo(student);
 	}
 }

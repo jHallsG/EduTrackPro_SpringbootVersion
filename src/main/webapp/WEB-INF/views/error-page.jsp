@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Error</title>
+<link rel = "icon" type ="image/png" href = "${pageContext.request.contextPath}/images/EduTrackPro.png">
 </head>
 <body>
 	<h1> Oopppssss... there seems to be an error. </h1>

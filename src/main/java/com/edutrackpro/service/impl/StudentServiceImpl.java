@@ -1,8 +1,12 @@
 package com.edutrackpro.service.impl;
 
+import java.security.Principal;
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import com.edutrackpro.api.StudentDTO;
@@ -47,5 +51,14 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public void updateStudentInfo(StudentDTO student) {
 		studentDAO.updateStudentInfo(student);
+	}
+	
+	public boolean isAdmin(Principal principal) {
+		Authentication auth = (Authentication) principal;
+		Collection<? extends GrantedAuthority> grantedAuth =  auth.getAuthorities();
+		boolean isAdmin = grantedAuth.stream().anyMatch(authority -> authority
+				.getAuthority().equals("ADMIN"));
+		
+		return isAdmin;
 	}
 }

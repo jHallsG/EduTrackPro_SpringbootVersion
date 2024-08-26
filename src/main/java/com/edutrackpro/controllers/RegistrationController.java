@@ -46,7 +46,8 @@ public class RegistrationController {
 			return "register";
 		}
 		
-		regService.registerNewUser(users.getUserEmail(), users.getPassword().toString()); 
+		regService.registerNewUser(users.getUserEmail(), new String(users.getPassword()));
+		redirectAttributes.addFlashAttribute("successMessage", "Registration complete!");
 		
 		return "redirect:/login/";
 	}

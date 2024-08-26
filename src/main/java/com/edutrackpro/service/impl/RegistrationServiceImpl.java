@@ -3,16 +3,17 @@ package com.edutrackpro.service.impl;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RegistrationServiceImpl {
 	private final PasswordEncoder bcryptPass;
-	private final UserDetailsServiceImpl userDetailsServiceImpl;
+	private final UserDetailsManager userDetailsManager;
 	
-	public RegistrationServiceImpl(PasswordEncoder bcryptPass, UserDetailsServiceImpl userDetailsServiceImpl) {
+	public RegistrationServiceImpl(PasswordEncoder bcryptPass, UserDetailsManager userDetailsManager) {
 		this.bcryptPass = bcryptPass;
-		this.userDetailsServiceImpl = userDetailsServiceImpl;
+		this.userDetailsManager = userDetailsManager;
 	}
 
 	public void registerNewUser(String username, String password) {
@@ -29,14 +30,9 @@ public class RegistrationServiceImpl {
 		UserDetails newUser = User
 				.withUsername(username)
 				.password(bcryptPass.encode(password))
-				.roles("user")
+				.roles("USER")
 				.build();
 		
-		saveUser(newUser);
-	}
-	
-	private void saveUser(UserDetails user) {
-	
-		userDetailsServiceImpl.createUser(user);
+		userDetailsManager.createUser(newUser);
 	}
 }

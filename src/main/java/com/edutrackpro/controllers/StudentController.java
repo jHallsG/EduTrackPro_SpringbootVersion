@@ -1,8 +1,11 @@
 package com.edutrackpro.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.edutrackpro.api.StudentDTO;
+import com.edutrackpro.api.UserDTO;
 import com.edutrackpro.service.StudentService;
 
 import jakarta.validation.Valid;
@@ -28,10 +32,14 @@ public class StudentController {
 	@GetMapping("/show")
 	public String fetchAllStudents(Model model) {
 		
+		UserDTO userDTO = (UserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        
+        System.out.println("User " + userDTO.getUserEmail() + " logged in as " + userDTO.getRole());
+		
 		List<StudentDTO> students = studentService.loadStudents();
 
 		model.addAttribute("students", students);
-
+		
 		return "student-list";
 	}
 
@@ -79,6 +87,12 @@ public class StudentController {
 
 	@GetMapping("/delete")
 	public String deleteStudent(@RequestParam("userId") int id) {
+		
+		UserDTO userDTO = (UserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		if (userDTO.getRole().equals("ROLE_USER")) {
+			return "redirect:/insufficientAuth";
+		}
 
 		studentService.deleteStudent(id);
 

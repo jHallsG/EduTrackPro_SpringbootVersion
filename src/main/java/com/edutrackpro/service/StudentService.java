@@ -1,5 +1,6 @@
 package com.edutrackpro.service;
 
+import java.security.Principal;
 import java.util.List;
 
 import com.edutrackpro.api.StudentDTO;
@@ -12,4 +13,5 @@ public interface StudentService {
 	StudentDTO getStudentById(int id);
 	void deleteStudent(int id);
 	void updateStudentInfo(StudentDTO student);
+	boolean isAdmin(Principal principal);
 }

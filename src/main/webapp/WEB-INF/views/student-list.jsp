@@ -13,7 +13,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/my-stylesheet.css" />
-
+<link rel = "icon" type ="image/png" href = "${pageContext.request.contextPath}/images/EduTrackPro.png">
 </head>
 <body>
 
@@ -63,12 +63,15 @@
 					<td>${student.address}</td>
 					<td>
 						<a href="./update?userId=${student.id}"><button class="btn btn-edit">Edit</button></a>
-						<a href="./delete?userId=${student.id}" onClick="if(!confirm('Confirm delete?')) return false"><button class="btn btn-delete">Delete</button></a>
+						<a href="./delete?userId=${student.id}" class="delete-link"><button class="btn btn-delete">Delete</button></a>
 					</td>
 				</tr>
 			</c:forEach>
 
 		</table>
 	</div>
+	
+	<input type="hidden" id="messageSent" value="${messageSent}" />
+	<script src="${pageContext.request.contextPath}/javascript/JSFunctions.js"></script>
 </body>
 </html>

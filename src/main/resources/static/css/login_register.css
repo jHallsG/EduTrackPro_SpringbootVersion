@@ -51,6 +51,18 @@ body {
 	justify-content: center;
 }
 
+.auth-title{
+	height: 80px;
+	background: #16a085;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .wrapper form {
 	padding: 30px 25px 25px 25px;
 }
@@ -70,6 +82,11 @@ body {
 	border: 1px solid lightgrey;
 	font-size: 16px;
 	transition: all 0.3s ease;
+}
+
+.login-error{
+	text-align: center;
+	padding-top: 5px;
 }
 
 form .row input:focus {

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edutrackpro.service.EmailService;
 
@@ -25,10 +26,14 @@ public class EmailController {
 		return "error-sent";
 	}
 	
-	@GetMapping("/error")
-	public String error() throws IOException {
-		throw new IOException();
+	@GetMapping("/requestAuth")
+	public String requestAuth(@RequestParam("usermessage") String message, RedirectAttributes redirectAttributes) {
 		
+		emailService.requestAuthorization(message);
+		
+		redirectAttributes.addFlashAttribute("messageSent", "Authorization request successfully sent!");
+		
+		return "redirect:/students/show";
 	}
 
 }

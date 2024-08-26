@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/my-stylesheet.css" />
-
+<link rel = "icon" type ="image/png" href = "${pageContext.request.contextPath}/images/EduTrackPro.png">
 </head>
 <body>
 	<div class="container">

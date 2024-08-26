@@ -22,4 +22,13 @@ public class EmailServiceImpl implements EmailService{
 		
 		javamailSenderImpl.send(newEmail);
 	}
+	
+	public void requestAuthorization(String authmessage) {
+		SimpleMailMessage newEmail = new SimpleMailMessage();
+		newEmail.setTo("clarkspark373@gmail.com");
+		newEmail.setSubject("Authorization Requested");
+		newEmail.setText(authmessage);
+		
+		javamailSenderImpl.send(newEmail);
+	}
 }

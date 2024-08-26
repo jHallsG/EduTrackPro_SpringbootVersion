@@ -8,6 +8,7 @@
 <title>Register</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login_register.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+	<link rel = "icon" type ="image/png" href = "${pageContext.request.contextPath}/images/EduTrackPro.png">
 </head>
 <body>
 	<div class="container">

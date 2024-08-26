@@ -30,7 +30,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorizeRequests -> authorizeRequests
 //            	.requestMatchers("/students/delete").hasRole("ADMIN")
         		.requestMatchers("/WEB-INF/views/**","/css/**","/images/**","/javascript/**").permitAll()
-        		.requestMatchers("/login/**","/register/**","/error/**","testing/**").permitAll()
+        		.requestMatchers("/login/**","/logout","/register/**","/error/**","testing/**").permitAll()
             	.anyRequest().authenticated())
       
             .formLogin(form -> form
@@ -47,6 +47,14 @@ public class SecurityConfig {
                 	// default, which will be "/<login-url>?error"
 //                	.failureUrl("/login/?error"))
                 	.permitAll())
+            
+            .logout(logout -> logout
+            		.logoutUrl("/logout/")
+            		.logoutSuccessUrl("/login/?logout")
+		            .invalidateHttpSession(true)
+		            .deleteCookies("JSESSIONID")
+		            .permitAll())
+            		
         
         	.authenticationProvider(authenticationProvider());
         			

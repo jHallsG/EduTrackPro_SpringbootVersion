@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Authorization</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/login_register.css">
+<link rel = "icon" type ="image/png" href = "${pageContext.request.contextPath}/images/EduTrackPro.png">
 </head>
 <body>
 	<div class="container">
@@ -20,7 +21,7 @@
 					authorization required to perform <span style="color: red;">DELETE</span> actions.  If you think this is a
 					mistake, or want to request for authorization, send me a message.</p>
 				<br>
-				<textarea id="textarea" rows="3" cols="52" readonly>${authMessage}></textarea>
+				<textarea id="textarea" rows="3" cols="52" readonly>${authMessage}</textarea>
 				<input type="hidden" name="usermessage" value="${authMessage}">
 				<br>
 				<div class="row button">

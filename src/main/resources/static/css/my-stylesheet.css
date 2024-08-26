@@ -155,3 +155,9 @@ tr:nth-child(even) {
     margin-top: 5px;
     display: block;
 }
+
+.ok-cancel{
+	display: flex;
+    justify-content: center;
+    gap: 10px;
+}

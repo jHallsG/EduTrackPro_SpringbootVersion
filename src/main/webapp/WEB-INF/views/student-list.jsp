@@ -24,11 +24,18 @@
                 	<i class="fas fa-home"></i>
                 </a>
             </div>
+            
             <div class="col text-center">
                 <h1>EduTrackPro</h1>
                 <h4>Student Management</h4>
             </div>
-            <div class="col-auto"></div>
+        
+            <div class="col-auto">
+                <a href="${pageContext.request.contextPath}/logout/" class="btn btn-primary">
+                	<i class="fa-solid fa-right-from-bracket"></i>
+                </a>
+            </div>
+            
         </div>
 		
 		<hr>

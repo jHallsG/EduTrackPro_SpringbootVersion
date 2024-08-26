@@ -18,7 +18,6 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserDetailsMa
 	private final JdbcTemplate jdbcTemplate;
 
 	public UserDetailsServiceImpl(JdbcTemplate jdbcTemplate) {
-		System.out.println("UserDetailsServiceImpl constructor called");
 		this.jdbcTemplate = jdbcTemplate;
 	}
 

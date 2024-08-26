@@ -1,10 +1,8 @@
 package com.edutrackpro.controllers;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,8 +51,7 @@ public class StudentController {
 	}
 
 	@PostMapping("/submit")
-	public String submitNewStudent(@Valid @ModelAttribute("addStudent") StudentDTO student, BindingResult res) { // StudentDTO and Students have the
-																					// same fields
+	public String submitNewStudent(@Valid @ModelAttribute("addStudent") StudentDTO student, BindingResult res) {
 		if (res.hasErrors()) {
 
 			List<ObjectError> errors = res.getAllErrors();

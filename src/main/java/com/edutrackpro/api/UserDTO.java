@@ -31,9 +31,7 @@ public class UserDTO implements UserDetails{
 	public String getRole() {
 		return role;
 	}
-//	public char[] getPassword() {
-//		return password;
-//	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
@@ -43,14 +41,12 @@ public class UserDTO implements UserDetails{
 	public void setRole(String role) {
 		this.role = role;
 	}
-//	public void setPassword(char[] password) {
-//		this.password = password;
-//	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
-	// ======================================================================== //
+	// ================================== UserDetails Impl ====================================== //
 	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(role));
@@ -68,21 +64,21 @@ public class UserDTO implements UserDetails{
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;  // Customize this based on your requirements
+        return true; 
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;  // Customize this based on your requirements
+        return true; 
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;  // Customize this based on your requirements
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;  // Customize this based on your requirements
+        return true;
     }
 }

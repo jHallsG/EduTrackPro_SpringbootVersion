@@ -22,10 +22,7 @@
 					<button type="submit" class="btn btn-logout">Logout</button>
 				</form>
 			</div>
-
 		</div>
 	</div>
-	
-	
 </body>
 </html>
